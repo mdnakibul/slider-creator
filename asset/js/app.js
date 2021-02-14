@@ -17,6 +17,8 @@ const KEY = '15674931-a9d714b6e9d654524df198e00&q';
 const showImages = (images) => {
   imagesArea.style.display = 'block';
   gallery.innerHTML = '';
+  document.getElementById('code-container').classList.add('d-none')
+  showLoader()
   // show gallery title
   galleryHeader.style.display = 'flex';
   images.forEach(image => {
@@ -82,6 +84,8 @@ const createSlider = () => {
     slideIndex++;
     changeSlide(slideIndex);
   }, duration);
+
+  getCode()
 }
 
 // change slider index 
@@ -115,9 +119,11 @@ const displayImages = () => {
   const search = document.getElementById('search');
   getImages(search.value)
   sliders.length = 0;
+  showLoader()
 }
 //Click trigger
 searchBtn.addEventListener('click', function () {
+  
   displayImages();
 })
 
@@ -137,3 +143,20 @@ sliderBtn.addEventListener('click', function () {
   }
   
 })
+
+// Show Loader 
+
+const showLoader = () => {
+  const loader = document.getElementById('loader-container');
+  loader.classList.toggle('d-none')
+}
+
+function getCode(){
+  let codeContainer = document.getElementById("code-container")
+  let content = document.getElementsByClassName('main')[0].innerHTML;
+  let codeContent = document.getElementById('code-content');
+  codeContainer.classList.remove('d-none')
+  console.log(content);
+  codeContent.textContent = content;
+  
+}

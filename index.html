@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Title</title>
+  <title>Slider Creator</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,9 +20,18 @@
     <h4 class="mt-2 text-center">Search Image for create slider</h4>
     <div class="form-inline mt-3 d-flex justify-content-center">
       <div class="input-group col-md-6 mb-2">
-        <input type="text" class="form-control" id="search" placeholder="nature">
+        <input type="text" class="form-control" id="search" placeholder="nature" autofocus >
       </div>
       <button type="button" id="search-btn" class="btn btn-primary mb-2">Search</button>
+    </div>
+
+    <div class="d-none" id="loader-container">
+      <div class="loader d-flex justify-content-center mt-3">
+        <button class="btn btn-primary" type="button" disabled style="opacity: 1;">
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Loading...
+        </button>
+      </div>
     </div>
     <section class="images">
       <div class="justify-content-around align-items-center mt-3 gallery-header mb-2">
@@ -44,6 +53,12 @@
       <div class="dots d-flex mt-2 w-100 justify-content-center align-items-center bg-light">
         <span class="dot" onclick="changeItem(-1)"></span>
         <span class="dot" onclick="changeItem(1)"></span>
+      </div>
+    </div>
+    <div id="code-container" class="d-none mt-5">
+      <div class="d-flex justify-content-center flex-wrap" >
+        <h2>Slider Code </h2>
+        <textarea name="" id="code-content" cols="0" rows="10" class=" w-100 p-3"></textarea>
       </div>
     </div>
   </div>
